@@ -72,7 +72,346 @@ This is so you can retrieve the Bearer Token and interact as an authorized user.
    Request Method: POST
   
   ```
-
+  
+  <strong>2.1.1 Get the Cluster ID</strong>
+  
+  First, you will need to know the cluster id in order to build the correct values for the payload that is $POST'ed.
+    
+   1. Call on: ``` https://127.0.0.1/v3/cluster ```
+   
+   The very response should be as detailed below, but you can map right to the cluster id to get the value as 
+   ``` data["0"].id ``` , and that should return the value you need to populate the clusterId key/value pair for the payload:
+   
+   ```
+    {
+      "type": "collection",
+      "links": {
+      "self": "…/v3/cluster"
+      },
+      "createTypes": {
+      "cluster": "…/v3/clusters"
+      },
+      "actions": { },
+      "pagination": {
+      "limit": 1000,
+      "total": 1
+      },
+      "sort": {
+      "order": "asc",
+      "reverse": "…/v3/cluster?order=desc",
+      "links": {
+      "agentImage": "…/v3/cluster?sort=agentImage",
+      "apiEndpoint": "…/v3/cluster?sort=apiEndpoint",
+      "appliedPodSecurityPolicyTemplateId": "…/v3/cluster?sort=appliedPodSecurityPolicyTemplateId",
+      "authImage": "…/v3/cluster?sort=authImage",
+      "caCert": "…/v3/cluster?sort=caCert",
+      "description": "…/v3/cluster?sort=description",
+      "desiredAgentImage": "…/v3/cluster?sort=desiredAgentImage",
+      "desiredAuthImage": "…/v3/cluster?sort=desiredAuthImage",
+      "dockerRootDir": "…/v3/cluster?sort=dockerRootDir",
+      "driver": "…/v3/cluster?sort=driver",
+      "state": "…/v3/cluster?sort=state",
+      "transitioning": "…/v3/cluster?sort=transitioning",
+      "transitioningMessage": "…/v3/cluster?sort=transitioningMessage",
+      "uuid": "…/v3/cluster?sort=uuid"
+      }
+      },
+      "filters": {
+      "agentImage": null,
+      "apiEndpoint": null,
+      "appliedEnableNetworkPolicy": null,
+      "appliedPodSecurityPolicyTemplateId": null,
+      "authImage": null,
+      "caCert": null,
+      "created": null,
+      "creatorId": null,
+      "defaultClusterRoleForProjectMembers": null,
+      "defaultPodSecurityPolicyTemplateId": null,
+      "description": null,
+      "desiredAgentImage": null,
+      "desiredAuthImage": null,
+      "dockerRootDir": null,
+      "driver": null,
+      "enableClusterAlerting": null,
+      "enableClusterMonitoring": null,
+      "enableNetworkPolicy": null,
+      "id": null,
+      "internal": null,
+      "name": null,
+      "removed": null,
+      "state": null,
+      "transitioning": null,
+      "transitioningMessage": null,
+      "uuid": null
+      },
+      "resourceType": "cluster",
+      "data": [
+          {
+          "actions": {
+          "backupEtcd": "…/v3/clusters/c-wz94t?action=backupEtcd",
+          "enableMonitoring": "…/v3/clusters/c-wz94t?action=enableMonitoring",
+          "exportYaml": "…/v3/clusters/c-wz94t?action=exportYaml",
+          "generateKubeconfig": "…/v3/clusters/c-wz94t?action=generateKubeconfig",
+          "importYaml": "…/v3/clusters/c-wz94t?action=importYaml",
+          "restoreFromEtcdBackup": "…/v3/clusters/c-wz94t?action=restoreFromEtcdBackup",
+          "rotateCertificates": "…/v3/clusters/c-wz94t?action=rotateCertificates"
+          },
+          "agentImage": "",
+          "allocatable": {
+          "cpu": "0",
+          "memory": "0",
+          "pods": "0"
+          },
+          "annotations": {
+          "authz.management.cattle.io/creator-role-bindings": "{\"created\":[\"cluster-owner\"],\"required\":[\"cluster-owner\"]}",
+          "lifecycle.cattle.io/create.cluster-agent-controller-cleanup": "true",
+          "lifecycle.cattle.io/create.cluster-scoped-gc": "true",
+          "lifecycle.cattle.io/create.mgmt-cluster-rbac-remove": "true"
+          },
+          "appliedEnableNetworkPolicy": false,
+          "appliedPodSecurityPolicyTemplateId": "",
+          "appliedSpec": {
+          "defaultClusterRoleForProjectMembers": null,
+          "defaultPodSecurityPolicyTemplateId": null,
+          "description": "",
+          "desiredAgentImage": "",
+          "desiredAuthImage": "",
+          "displayName": "",
+          "dockerRootDir": "/var/lib/docker",
+          "enableClusterAlerting": false,
+          "enableClusterMonitoring": false,
+          "enableNetworkPolicy": null,
+          "internal": false,
+          "localClusterAuthEndpoint": {
+          "enabled": false,
+          "type": "/v3/schemas/localClusterAuthEndpoint"
+          },
+          "type": "/v3/schemas/clusterSpec"
+          },
+          "authImage": "",
+          "baseType": "cluster",
+          "capabilities": {
+          "ingressCapabilities": [
+              {
+              "customDefaultBackend": false,
+              "ingressProvider": "Nginx",
+              "type": "/v3/schemas/ingressCapabilities"
+              }
+              ],
+              "loadBalancerCapabilities": {
+              "healthCheckSupported": false,
+              "type": "/v3/schemas/loadBalancerCapabilities"
+              },
+              "nodePoolScalingSupported": false,
+              "nodePortRange": "30000-32767",
+              "type": "/v3/schemas/capabilities"
+              },
+              "capacity": {
+              "cpu": "0",
+              "memory": "0",
+              "pods": "0"
+              },
+              "conditions": [ 10 items
+              {
+              "status": "True",
+              "type": "Pending"
+              },
+              {
+              "lastUpdateTime": "2020-02-12T23:46:52Z",
+              "message": "waiting for etcd and controlplane nodes to be registered",
+              "reason": "Provisioning",
+              "status": "Unknown",
+              "type": "Provisioned"
+              },
+              {
+              "lastUpdateTime": "2020-02-12T23:46:52Z",
+              "message": "Waiting for API to be available",
+              "status": "Unknown",
+              "type": "Waiting"
+              },
+              {
+              "lastUpdateTime": "2020-02-12T23:46:52Z",
+              "status": "True",
+              "type": "BackingNamespaceCreated"
+              },
+              {
+              "lastUpdateTime": "2020-02-12T23:46:52Z",
+              "status": "True",
+              "type": "DefaultProjectCreated"
+              },
+              {
+              "lastUpdateTime": "2020-02-12T23:46:52Z",
+              "status": "True",
+              "type": "SystemProjectCreated"
+              },
+              {
+              "lastUpdateTime": "2020-02-12T23:46:52Z",
+              "status": "True",
+              "type": "InitialRolesPopulated"
+              },
+              {
+              "lastUpdateTime": "2020-02-12T23:46:52Z",
+              "status": "True",
+              "type": "CreatorMadeOwner"
+              },
+              {
+              "lastUpdateTime": "2020-02-12T23:46:52Z",
+              "status": "True",
+              "type": "NoDiskPressure"
+              },
+              {
+              "lastUpdateTime": "2020-02-12T23:46:52Z",
+              "status": "True",
+              "type": "NoMemoryPressure"
+              }
+          ],
+          "created": "2020-02-12T23:46:52Z",
+          "createdTS": 1581551212000,
+          "creatorId": "user-x57rg",
+          "defaultClusterRoleForProjectMembers": null,
+          "defaultPodSecurityPolicyTemplateId": null,
+          "description": "",
+          "desiredAgentImage": "",
+          "desiredAuthImage": "",
+          "dockerRootDir": "/var/lib/docker",
+          "driver": "rancherKubernetesEngine",
+          "enableClusterAlerting": false,
+          "enableClusterMonitoring": false,
+          "enableNetworkPolicy": false,
+          "id": "c-wz94t",
+          "internal": false,
+          "labels": {
+          "cattle.io/creator": "norman"
+          },
+          "limits": {
+          "cpu": "0",
+          "memory": "0",
+          "pods": "0"
+          },
+          "links": {
+          "clusterAlertGroups": "…/v3/clusters/c-wz94t/clusteralertgroups",
+          "clusterAlertRules": "…/v3/clusters/c-wz94t/clusteralertrules",
+          "clusterAlerts": "…/v3/clusters/c-wz94t/clusteralerts",
+          "clusterCatalogs": "…/v3/clusters/c-wz94t/clustercatalogs",
+          "clusterLoggings": "…/v3/clusters/c-wz94t/clusterloggings",
+          "clusterMonitorGraphs": "…/v3/clusters/c-wz94t/clustermonitorgraphs",
+          "clusterRegistrationTokens": "…/v3/clusters/c-wz94t/clusterregistrationtokens",
+          "clusterRoleTemplateBindings": "…/v3/clusters/c-wz94t/clusterroletemplatebindings",
+          "etcdBackups": "…/v3/clusters/c-wz94t/etcdbackups",
+          "namespaces": "…/v3/clusters/c-wz94t/namespaces",
+          "nodePools": "…/v3/clusters/c-wz94t/nodepools",
+          "nodes": "…/v3/clusters/c-wz94t/nodes",
+          "notifiers": "…/v3/clusters/c-wz94t/notifiers",
+          "persistentVolumes": "…/v3/clusters/c-wz94t/persistentvolumes",
+          "projects": "…/v3/clusters/c-wz94t/projects",
+          "remove": "…/v3/clusters/c-wz94t",
+          "self": "…/v3/clusters/c-wz94t",
+          "shell": "wss://127.0.0.1/v3/clusters/c-wz94t?shell=true",
+          "storageClasses": "…/v3/clusters/c-wz94t/storageclasses",
+          "subscribe": "…/v3/clusters/c-wz94t/subscribe",
+          "templates": "…/v3/clusters/c-wz94t/templates",
+          "tokens": "…/v3/clusters/c-wz94t/tokens",
+          "update": "…/v3/clusters/c-wz94t"
+          },
+          "localClusterAuthEndpoint": {
+          "enabled": true,
+          "type": "/v3/schemas/localClusterAuthEndpoint"
+          },
+          "name": "sand",
+          "rancherKubernetesEngineConfig": {
+          "addonJobTimeout": 30,
+          "authentication": {
+          "strategy": "x509|webhook",
+          "type": "/v3/schemas/authnConfig"
+          },
+          "authorization": {
+          "type": "/v3/schemas/authzConfig"
+          },
+          "bastionHost": {
+          "sshAgentAuth": false,
+          "type": "/v3/schemas/bastionHost"
+          },
+          "cloudProvider": {
+          "type": "/v3/schemas/cloudProvider"
+          },
+          "ignoreDockerVersion": true,
+          "ingress": {
+          "provider": "nginx",
+          "type": "/v3/schemas/ingressConfig"
+          },
+          "kubernetesVersion": "v1.13.5-rancher1-3",
+          "monitoring": {
+          "provider": "metrics-server",
+          "type": "/v3/schemas/monitoringConfig"
+          },
+          "network": {
+          "options": {
+          "flannel_backend_type": "vxlan"
+          },
+          "plugin": "canal",
+          "type": "/v3/schemas/networkConfig"
+          },
+          "restore": {
+          "restore": false,
+          "type": "/v3/schemas/restoreConfig"
+          },
+          "services": {
+          "etcd": {
+          "backupConfig": {
+          "enabled": true,
+          "intervalHours": 12,
+          "retention": 6,
+          "s3BackupConfig": null,
+          "type": "/v3/schemas/backupConfig"
+          },
+          "creation": "12h",
+          "extraArgs": {
+          "election-timeout": "5000",
+          "heartbeat-interval": "500"
+          },
+          "retention": "72h",
+          "snapshot": false,
+          "type": "/v3/schemas/etcdService"
+          },
+          "kubeApi": {
+          "alwaysPullImages": false,
+          "podSecurityPolicy": false,
+          "serviceNodePortRange": "30000-32767",
+          "type": "/v3/schemas/kubeAPIService"
+          },
+          "kubeController": {
+          "type": "/v3/schemas/kubeControllerService"
+          },
+          "kubelet": {
+          "failSwapOn": false,
+          "type": "/v3/schemas/kubeletService"
+          },
+          "kubeproxy": {
+          "type": "/v3/schemas/kubeproxyService"
+          },
+          "scheduler": {
+          "type": "/v3/schemas/schedulerService"
+          },
+          "type": "/v3/schemas/rkeConfigServices"
+          },
+          "sshAgentAuth": false,
+          "type": "/v3/schemas/rancherKubernetesEngineConfig"
+          },
+          "requested": {
+          "cpu": "0",
+          "memory": "0",
+          "pods": "0"
+          },
+          "state": "provisioning",
+          "transitioning": "yes",
+          "transitioningMessage": "waiting for etcd and controlplane nodes to be registered",
+          "type": "cluster",
+          "uuid": "f1ce8a4c-4df1-11ea-a937-0242ac110002"
+          }
+      ]
+}
+   ```
+  
   <strong>2.2 Payload:</strong>
   ```
   {
