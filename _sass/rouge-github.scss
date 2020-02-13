@@ -1,5 +1,13 @@
 code.language-plaintext, code.highlighter-rouge { color: #779ee4; }
 
+div.language-plaintext, 
+div.highlighter-rouge { 
+    max-height: 250px;
+    height: 450px;
+    overflow-y: scroll;
+    margin: 15px auto;
+}
+
 .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 .highlight .cm {
