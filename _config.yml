@@ -1,6 +1,5 @@
-title: Minimal theme
-logo: /assets/img/logo.png
-description: Minimal is a theme for GitHub Pages.
-show_downloads: true
+title: Rancher REST API Docs
+logo: /assets/img/rancher-logo.png
+description: Rancher REST API v2.x+ documentation 
 google_analytics:
 theme: jekyll-theme-minimal
