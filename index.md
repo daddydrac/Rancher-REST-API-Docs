@@ -77,9 +77,9 @@ This is so you can retrieve the Bearer Token and interact as an authorized user.
   
   First, you will need to know the cluster id in order to build the correct values for the payload that is <strong>$POST</strong>'ed.
     
-   A) Call on: ``` https://127.0.0.1/v3/cluster ```
+   2.1.1(a) Call on: ``` https://127.0.0.1/v3/cluster ```
    The very long response object should look like the JSON object below.
-   <em>(Scroll down to 'B' for array mapping to the cluster id)</em>
+   <em>(Scroll down to '2.1.1(b)' for array mapping to the cluster id)</em>
    
    ```
     {
@@ -410,7 +410,7 @@ This is so you can retrieve the Bearer Token and interact as an authorized user.
       ]
 }
 ```
-  B) Map to cluster id from above payload with: ``` data["0"].id ```, which should return: ``` "id": "c-wz94t" ```.
+  2.1.1(b) Map to cluster id from above payload with: ``` data["0"].id ```, which should return: ``` "id": "c-wz94t" ```.
   
   <strong>2.2 Payload:</strong>
   ```
