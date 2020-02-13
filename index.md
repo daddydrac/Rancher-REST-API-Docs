@@ -34,6 +34,7 @@
   ```
     
   <strong>1.5 CRSF and Session Cookies</strong>
+  
   In the header requests, you'll need add (as all one line): 
    ```
    Cookie: R_USERNAME=admin; 
@@ -62,6 +63,7 @@
  ---
  
 <h3 id="create-api-key">2.0 Create API Key</h3>
+
 This is so you can retrieve the beaerer token and interact as an authorized user.
 
   <strong>2.1 API Route:</strong> 
