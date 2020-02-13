@@ -1,6 +1,6 @@
 <h2 id="auth">Authentication</h2>
 
-<h3>1.0 Logging into Rancher Locally</h3>
+<h3 id="local-auth">1.0 Logging into Rancher Locally</h3>
 
   <strong>1.1 API Route:</strong> 
   ``` 
@@ -58,6 +58,70 @@
   "type": "localProvider"
 }
  ```
+ 
+ ---
+ 
+<h3 id="create-api-key">2.0 Create API Key</h3>
+This is so you can retrieve the beaerer token and interact as an authorized user.
+
+  <strong>2.1 API Route:</strong> 
+  ``` 
+   Request URL: https://127.0.0.1/v3/token
+   Request Method: POST
+  
+  ```
+
+  <strong>2.2 Payload:</strong>
+  ```
+  {
+    current: false
+    enabled: true
+    expired: false
+    isDerived: false
+    ttl: 31622400000
+    type: "token"
+    description: "user_token"
+    clusterId: "c-wz94t"
+  }
+  ```
+  <strong>2.2 Response: </strong>
+  Towrds the bottom of the reponse object you will see <em>"token":"token-x69qs:twfj42hfbqhr2zqffrwvr5l2n5jz64rvwjbrh8tz266skv8wswxrmv",</em>, that is the bearer token you will recieve.
+  ```
+  { 
+   "authProvider":"local",
+   "baseType":"token",
+   "clusterId":"c-wz94t",
+   "created":"2020-02-13T13:16:50Z",
+   "createdTS":1581599810000,
+   "creatorId":null,
+   "current":false,
+   "description":"user_token",
+   "enabled":true,
+   "expired":false,
+   "expiresAt":"",
+   "groupPrincipals":null,
+   "id":"token-x69qs",
+   "isDerived":true,
+   "labels":{ 
+      "authn.management.cattle.io/token-userId":"user-x57rg",
+      "cattle.io/creator":"norman"
+   },
+   "lastUpdateTime":"",
+   "links":{ 
+      "remove":"https://127.0.0.1/v3/tokens/token-x69qs",
+      "self":"https://127.0.0.1/v3/tokens/token-x69qs",
+      "update":"https://127.0.0.1/v3/tokens/token-x69qs"
+   },
+   "name":"token-x69qs",
+   "token":"token-x69qs:twfj42hfbqhr2zqffrwvr5l2n5jz64rvwjbrh8tz266skv8wswxrmv",
+   "ttl":31622400000,
+   "type":"token",
+   "userId":"user-x57rg",
+   "userPrincipal":"map[metadata:map[name:local://user-x57rg creationTimestamp:\u003cnil\u003e] displayName:Default Admin  
+                    loginName:admin principalType:user me:true provider:local]",
+   "uuid":"182bb3ea-4e63-11ea-8930-0242ac110002"
+}
+```
 
 
 
