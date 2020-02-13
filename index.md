@@ -1,14 +1,14 @@
 <h2>Authentication</h2>
 
-<h3> 1.0 Logging into Rancher Locally</h3>
+<h3>1.0 Logging into Rancher Locally</h3>
 
-    1.1. API Route: ``` https://127.0.0.1/login ```
+    <strong>1.1 API Route:</strong> ``` https://127.0.0.1/login ```
 
-    1.2 Query String Params: ``` action: login ```
+    <strong>1.2 Query String Params:</strong> ``` action: login ```
 
-    1.3 Fully Qualified Route: ``` https://127.0.0.1/v3-public/localProviders/local?action=login ```
+    <strong>1.3 Fully Qualified Route:</strong> ``` https://127.0.0.1/v3-public/localProviders/local?action=login ```
 
-    1.4 Payload:
+    <strong>1.4 Payload:</strong>
     ```
     {
       username: "admin"
@@ -21,10 +21,10 @@
     }
     ```
     
-    1.5 CRSF and Session Cookies
+    <strong>1.5 CRSF and Session Cookies</strong>
     ![](assets/images/cookies-auth.png)
 
-    1.6 Local Auth REST API schema:
+    <strong>1.6 Local Auth REST API schema:</strong>
     ```
     {
       "actions": {
