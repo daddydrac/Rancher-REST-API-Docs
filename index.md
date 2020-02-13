@@ -86,7 +86,8 @@ This is so you can retrieve the beaerer token and interact as an authorized user
   ```
   
   <strong>2.2 Response: </strong>
-  Towrds the bottom of the reponse object you will see <em>"token":"token-x69qs:twfj42hfbqhr2zqffrwvr5l2n5jz64rvwjbrh8tz266skv8wswxrmv"</em>, that is the bearer token you will recieve, and subsequently use with every API call for access.
+  
+  Towards the bottom of the reponse object, (listed below), you will see <em>"token":"token-x69qs:twfj42hfbqhr2zqffrwvr5l2n5jz64rvwjbrh8tz266skv8wswxrmv"</em>, that is the bearer token you will recieve, and subsequently use with every API call for access.
   ```
   { 
    "authProvider":"local",
