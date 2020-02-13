@@ -90,7 +90,11 @@ This is so you can retrieve the beaerer token and interact as an authorized user
   <strong>2.2 Response: </strong>
   
   Towards the bottom of the reponse object, (listed below), you will see:
-  ```"token":"token-x69qs:twfj42hfbqhr2zqffrwvr5l2n5jz64rvwjbrh8tz266skv8wswxrmv"```
+  
+  ```
+  "token":"token-x69qs:twfj42hfbqhr2zqffrwvr5l2n5jz64rvwjbrh8tz266skv8wswxrmv"
+  ```
+  
   That is the bearer token you will recieve, and subsequently use with every API call for access.
   
   ```
