@@ -1,3 +1,59 @@
+<h2>Authentication</h2>
+
+<h3> 1.0 Logging into Rancher Locally</h3>
+
+    1.1. API Route: ``` https://127.0.0.1/login ```
+
+    1.2 Query String Params: ``` action: login ```
+
+    1.3 Fully Qualified Route: ``` https://127.0.0.1/v3-public/localProviders/local?action=login ```
+
+    1.4 Payload:
+    ```
+    {
+      username: "admin"
+      password: "supersecret"
+      description: "UI Session"
+      responseType: "cookie"
+      ttl: 57600000
+      labels: {ui-session: "true"}
+      ui-session: "true"
+    }
+    ```
+    
+    1.5 CRSF and Session Cookies
+    ![](assets/images/cookies-auth.png)
+
+    1.6 Local Auth REST API schema:
+    ```
+    {
+      "actions": {
+      "login": "…/v3-public/localProviders/local?action=login"
+    },
+      "baseType": "authProvider",
+      "creatorId": null,
+      "id": "local",
+      "links": {
+      "self": "…/v3-public/localProviders/local"
+    },
+      "type": "localProvider"
+    }
+    ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---
 layout: default
 ---
