@@ -5,16 +5,19 @@
   <strong>1.1 API Route:</strong> 
   ``` 
   https://127.0.0.1/login
+  
   ```
 
   <strong>1.2 Query String Params:</strong>
   ``` 
   action: login 
+  
   ```
 
   <strong>1.3 Fully Qualified Route:</strong> 
   ``` 
   https://127.0.0.1/v3-public/localProviders/local?action=login 
+  
   ```
 
   <strong>1.4 Payload:</strong>
@@ -31,9 +34,11 @@
   ```
     
   <strong>1.5 CRSF and Session Cookies</strong>
-  In the header requests, you'll need add: 
+  In the header requests, you'll need add (as all one line): 
    ```
-   Cookie: R_USERNAME=admin; CSRF=f93a4bdb7f; R_SESS=token-8blls:pvwss586wwdd46bxgcl7bghkkbbgqgc7hqgkx9rzsw65sgbsd5wzmt
+   Cookie: R_USERNAME=admin; 
+   CSRF=f93a4bdb7f; 
+   R_SESS=token-8blls:pvwss586wwdd46bxgcl7bghkkbbgqgc7hqgkx9rzsw65sgbsd5wzmt
    ```
   
   ![](assets/images/cookies-auth.png)
