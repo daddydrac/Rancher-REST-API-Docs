@@ -2,43 +2,43 @@
 
 <h3>1.0 Logging into Rancher Locally</h3>
 
-    <strong>1.1 API Route:</strong> ``` https://127.0.0.1/login ```
+  <strong>1.1 API Route:</strong> ``` https://127.0.0.1/login ```
 
-    <strong>1.2 Query String Params:</strong> ``` action: login ```
+  <strong>1.2 Query String Params:</strong> ``` action: login ```
 
-    <strong>1.3 Fully Qualified Route:</strong> ``` https://127.0.0.1/v3-public/localProviders/local?action=login ```
+  <strong>1.3 Fully Qualified Route:</strong> ``` https://127.0.0.1/v3-public/localProviders/local?action=login ```
 
-    <strong>1.4 Payload:</strong>
-    ```
-    {
-      username: "admin"
-      password: "supersecret"
-      description: "UI Session"
-      responseType: "cookie"
-      ttl: 57600000
-      labels: {ui-session: "true"}
-      ui-session: "true"
-    }
-    ```
+  <strong>1.4 Payload:</strong>
+  ```
+  {
+    username: "admin"
+    password: "supersecret"
+    description: "UI Session"
+    responseType: "cookie"
+    ttl: 57600000
+    labels: {ui-session: "true"}
+    ui-session: "true"
+  }
+  ```
     
-    <strong>1.5 CRSF and Session Cookies</strong>
-    ![](assets/images/cookies-auth.png)
+  <strong>1.5 CRSF and Session Cookies</strong>
+  ![](assets/images/cookies-auth.png)
 
-    <strong>1.6 Local Auth REST API schema:</strong>
-    ```
-    {
-      "actions": {
-      "login": "…/v3-public/localProviders/local?action=login"
-    },
-      "baseType": "authProvider",
-      "creatorId": null,
-      "id": "local",
-      "links": {
-      "self": "…/v3-public/localProviders/local"
-    },
-      "type": "localProvider"
-    }
-    ```
+  <strong>1.6 Local Auth REST API schema:</strong>
+```
+{
+  "actions": {
+  "login": "…/v3-public/localProviders/local?action=login"
+},
+  "baseType": "authProvider",
+  "creatorId": null,
+  "id": "local",
+  "links": {
+  "self": "…/v3-public/localProviders/local"
+},
+  "type": "localProvider"
+}
+ ```
 
 
 
