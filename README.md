@@ -1,8 +1,6 @@
-## Welcome to GitHub Pages
+## Welcome to the Rancher REST API Docs
 
-You can use the [editor on GitHub](https://github.com/joehoeller/Rancher-API-Docs/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+You can use this to learn and explore the Rancher REST API. This documantation and it's tutorials use Postman, but you are free to query with CURL or whatever else is more comfortable for you.
 
 ### Markdown
 
