@@ -1,4 +1,4 @@
-<h2>Authentication</h2>
+<h2 id="1">Authentication</h2>
 
 <h3>1.0 Logging into Rancher Locally</h3>
 
