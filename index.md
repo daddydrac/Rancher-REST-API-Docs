@@ -22,6 +22,9 @@
   ```
     
   <strong>1.5 CRSF and Session Cookies</strong>
+  In the header requests, you'll need add: 
+   ```Cookie: R_USERNAME=admin; CSRF=f93a4bdb7f; R_SESS=token-8blls:pvwss586wwdd46bxgcl7bghkkbbgqgc7hqgkx9rzsw65sgbsd5wzmt```
+  
   ![](assets/images/cookies-auth.png)
 
   <strong>1.6 Local Auth REST API schema:</strong>
